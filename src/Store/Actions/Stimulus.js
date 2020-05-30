@@ -121,31 +121,40 @@ export const LiveEpisode = (items, bcf) => {
 	            intentions_input
             })
             sightPatterns.forEach((sp, index)=>{
-                if(index !== sightPatterns.length-2 && index !== sightPatterns.length-1){
+                if (index !== sightPatterns.length-1){
                     BIP.push({
                         hearing_pattern,
                         hearing_class,
                         sight_pattern: sp,
                         intentions_input
                     })
-                }else if(index === sightPatterns.length-2){
+                }else {
                     CHECK.push({
                         hearing_pattern,
                         hearing_class,
                         sight_pattern: sp,
                         intentions_input
                     })
-                }else {
-                    CLACK.push({
-                        hearing_pattern,
-                        hearing_class,
-                        sight_pattern: sp,
-                        intentions_input: [bcf.biology, bcf.culture, bcf.feelings],
-                        image_id: -1,
-                        rename: 'false',
-                        desired_intentions_input
-                    })
-                }
+                }// else {
+                //     CLACK.push({
+                //         hearing_pattern,
+                //         hearing_class,
+                //         sight_pattern: sp,
+                //         intentions_input: [bcf.biology, bcf.culture, bcf.feelings],
+                //         image_id: -1,
+                //         rename: 'false',
+                //         desired_intentions_input
+                //     })
+                // }
+            })
+            CLACK.push({
+                hearing_pattern,
+                hearing_class,
+                sight_pattern: hearing_class,
+                intentions_input: [bcf.biology, bcf.culture, bcf.feelings],
+                image_id: -1,
+                rename: 'false',
+                desired_intentions_input
             })
             const formatedData = {
                 BUM,

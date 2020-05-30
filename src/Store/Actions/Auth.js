@@ -82,8 +82,8 @@ export const getUserProjects = () => {
             })
             dispatch({type: SET_PROJECTS, payload})
         }).catch(e=>{
-            console.log(e.response)
-            if(e.response.status === 401){
+            console.log(e)
+            if(e/*.response.status === 401*/){
                 dispatch({type: LOG_OUT})
                 let storage = window.localStorage;
                 // remove from store
